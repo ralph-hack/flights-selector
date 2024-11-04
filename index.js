@@ -1,20 +1,22 @@
 const fs = require('fs');
 
 function processFlights(data) {
-  const flights = [];
+  const locations = [];
   for (const itinerary of data.destinations) {
     const flight = itinerary.flightInfo;
     const {city, country, airport} = itinerary;
     const searchUrl = `https://www.kayak.com/${itinerary.clickoutUrl}`
     const location = {
-      city: {
-        id: city.id,
-        name: city.name
-      },
-      country: {
-        id: country.id, 
-        name: country.name,
-        code: country.code
+      destination: {
+        city: {
+            id: city.id,
+            name: city.name
+        },
+        country: {
+            id: country.id, 
+            name: country.name,
+            code: country.code
+        }
       },
       label: `${city.name}, ${country.name}`,
       flight: {
@@ -33,35 +35,37 @@ function processFlights(data) {
       searchUrl: searchUrl
     };
     console.log('location ===> ',location)
-    flights.push(location);
+    locations.push(location);
   }
 
-  // Sort accommodations by review rating (descending) and then by price (ascending)
-  flights.sort((a, b) => {
-    if (a.reviewRating !== b.reviewRating) {
-      return b.reviewRating - a.reviewRating;
-    } else {
-      return a.price - b.price;
+  // Sort accommodations by destination aka city.name (ascending), TODO[by month (ascending)] and then by price (ascending)
+  locations.sort((a, b) => {
+    if (a.location.destination.city.name !== b.location.destination.city.name) {
+      return b.location.destination.city.name - a.location.destination.city.name;
+    } 
+    // else if (a.location.flight.date !== b.location.flight.date) {
+    //     return a.location.flight.date - b.location.flight.date;
+    // } 
+    else  {
+      return a.location.flight.expectedPrice - b.location.flight.expectedPrice;
     }
   });
 
   // Group accommodations by review rating
-  const groupedAccommodations = {};
-  for (const accommodation of flights) {
-    const reviewRating = accommodation.reviewRating;
-    const reviewRatingAsSting = accommodation.reviewRatingAsString
-    const key = reviewRating ?? reviewRatingAsSting
-    if (!groupedAccommodations[key]) {
-      groupedAccommodations[key] = [];
+  const groupedLocations = {};
+  for (const location of locations) {
+    const key = location.destination.city.namecity.name;
+    if (!groupedLocations[key]) {
+      groupedLocations[key] = [];
     }
-    groupedAccommodations[key].push(accommodation);
+    groupedLocations[key].push(location);
   }
 
-  return groupedAccommodations;
+  return groupedLocations;
 }
 
 // Load the JSON data
-fs.readFile('accommodations.json', 'utf8', (err, data) => {
+fs.readFile('flights.json', 'utf8', (err, data) => {
   if (err) {
     console.error('Error reading JSON file:', err);
     return;
@@ -72,10 +76,10 @@ fs.readFile('accommodations.json', 'utf8', (err, data) => {
     const groupedData = processFlights(json);
 
     // Print the grouped data (optional)
-    for (const score in groupedData) {
-      console.log(`Review Score: ${score}`);
-      for (const accommodation of groupedData[score]) {
-        console.log(`\t- ${accommodation.title}: $${accommodation.price} ${accommodation.url}`);
+    for (const cityName in groupedData) {
+      console.log(`City: ${cityName}`);
+      for (const location of groupedData[cityName]) {
+        console.log(`\t- ${location.label}: $${location.flight.exp} ${location.searchUrl}`); //(${location.flight.url})`);
       }
     }
   } catch (error) {
