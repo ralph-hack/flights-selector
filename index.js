@@ -113,6 +113,10 @@ const strategyGroupedSortByCityAndPrice = (a, b) => {
   }
 };
 
+const strategySortByPrice = (a, b) => {
+    return a.flight.expectedPrice - b.flight.expectedPrice;
+};
+
 // Load the JSON data
 fs.readFile('flights.json', 'utf8', (err, data) => {
   if (err) {
@@ -123,14 +127,19 @@ fs.readFile('flights.json', 'utf8', (err, data) => {
   try {
     const json = JSON.parse(data);
     //sortByCityAndPrice(json);
-    sortByCityAndPriceGeneric(json);
-
+    //sortByCityAndPriceGeneric(json);
+    sortByPriceGeneric(json)
     // Print list sorted by price
     // printByPrice(groupedData);
   } catch (error) {
     console.error('Error processing JSON data:', error);
   }
 });
+
+function sortByPriceGeneric(json) {
+  const locations = processFlights(json,strategySortByPrice);
+  printByPrice(locations);
+}
 
 function sortByCityAndPriceGeneric(json) {
   const locations = processFlights(json,strategyGroupedSortByCityAndPrice);
