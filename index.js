@@ -52,16 +52,18 @@ function processFlights(data) {
   });
 
   // Group accommodations by review rating
-  const groupedLocations = {};
-  for (const location of locations) {
-    const key = location.destination.city.name;
-    if (!groupedLocations[key]) {
-      groupedLocations[key] = [];
-    }
-    groupedLocations[key].push(location);
-  }
+  // const groupedLocations = {};
+  // for (const location of locations) {
+  //   const key = location.destination.city.name;
+  //   if (!groupedLocations[key]) {
+  //     groupedLocations[key] = [];
+  //   }
+  //   groupedLocations[key].push(location);
+  // }
 
-  return groupedLocations;
+  // return groupedLocations;
+
+  return locations;
 }
 
 // Load the JSON data
@@ -76,11 +78,15 @@ fs.readFile('flights.json', 'utf8', (err, data) => {
     const groupedData = processFlights(json);
 
     // Print the grouped data (optional)
-    for (const cityName in groupedData) {
-      console.log(`City: ${cityName}`);
-      for (const location of groupedData[cityName]) {
-        console.log(`\t- ${location.label}: $${location.flight.expectedPrice} ${location.searchUrl}`); //(${location.flight.url})`);
-      }
+    // for (const cityName in groupedData) {
+    //   console.log(`City: ${cityName}`);
+    //   for (const location of groupedData[cityName]) {
+    //     console.log(`\t- ${location.label}: $${location.flight.expectedPrice} ${location.searchUrl}`); //(${location.flight.url})`);
+    //   }
+    // }
+
+    for(const location of groupedData) {
+      console.log(`${location.label}: $${location.flight.expectedPrice} ${location.searchUrl}`);
     }
   } catch (error) {
     console.error('Error processing JSON data:', error);
