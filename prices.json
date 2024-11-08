@@ -18165,16 +18165,16 @@
                     ],
                     "airlineFeeUrl": "https:\u002F\u002Fwww.delta.com\u002Fcontent\u002Fwww\u002Fen_US\u002Ftraveling-with-us\u002Fbaggage\u002Fbefore-your-trip.html"
                 }
-            ],
-            "cabinCode": "bfbe",
-            "operationalDisclosures": "Operated by Delta",
-            "co2Info": {
-                "co2Total": 5.011526986956596,
-                "co2Average": 6.567650593794047
-            },
-            "isSaved": false,
-            "isCheapestRatePrivateAndHidden": false,
-            "itemType": "RESULT"
+        ],
+        "cabinCode": "bfbe",
+        "operationalDisclosures": "Operated by Delta",
+        "co2Info": {
+            "co2Total": 5.011526986956596,
+            "co2Average": 6.567650593794047
+        },
+        "isSaved": false,
+        "isCheapestRatePrivateAndHidden": false,
+        "itemType": "RESULT"
       }
     }
   }
