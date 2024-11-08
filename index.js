@@ -147,7 +147,7 @@ function main(){
       //sortByCityAndPriceGeneric(json);
       //sortByPriceGeneric(json)
       //sortByCountryAndPriceGeneric(json);
-      searchForCountryDestinations(json,['Japan','China','Thailand','Cambodia','Philippines'])
+      searchForCountryDestinations(json,['Japan','China','Thailand','Cambodia','Philippines','Vietnam','Indonesia','Malaysia','Singapore'])
     } catch (error) {
       console.error('Error processing JSON data:', error);
     }
