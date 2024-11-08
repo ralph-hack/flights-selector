@@ -127,8 +127,8 @@ fs.readFile('flights.json', 'utf8', (err, data) => {
   try {
     const json = JSON.parse(data);
     //sortByCityAndPrice(json);
-    //sortByCityAndPriceGeneric(json);
-    sortByPriceGeneric(json)
+    sortByCityAndPriceGeneric(json);
+    //sortByPriceGeneric(json)
     // Print list sorted by price
     // printByPrice(groupedData);
   } catch (error) {
