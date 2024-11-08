@@ -79,7 +79,7 @@ fs.readFile('flights.json', 'utf8', (err, data) => {
     for (const cityName in groupedData) {
       console.log(`City: ${cityName}`);
       for (const location of groupedData[cityName]) {
-        console.log(`\t- ${location.label}: $${location.flight.exp} ${location.searchUrl}`); //(${location.flight.url})`);
+        console.log(`\t- ${location.label}: $${location.flight.expectedPrice} ${location.searchUrl}`); //(${location.flight.url})`);
       }
     }
   } catch (error) {
