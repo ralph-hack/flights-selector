@@ -17987,7 +17987,127 @@
               }
             ]
           }
-        ]
+        ],
+        "trackingDataLayer": {
+            "tagLayerPrice": 1488
+        },
+        "optionsByFare": [
+            {
+                "fareName": {
+                    "fareId": "BASICECON",
+                    "displayName": "Basic Economy"
+                },
+                "options": [
+                    {
+                        "url": "\u002Fbook\u002Fflight?code=oaDiKiOr8v.05bdAFnsgyzBDARZyLA7ng.148731.2aa98b03d78967476e3958ab4b5b06a4&h=71388deeb0cf&sub=F-4697524151792254663E029dbed3118&bucket=BASICECON",
+                        "bookingId": "F-4697524151792254663E029dbed3118",
+                        "displayPrice": "$1,488",
+                        "providerInfo": {
+                            "code": "KE",
+                            "displayName": "Korean Air",
+                            "logoUrls": [
+                                {
+                                    "image": "https:\u002F\u002Fcontent.r9cdn.net\u002Frimg\u002Fprovider-logos\u002Fairlines\u002Fv\u002FKE.png?crop=false&width=108&height=92&fallback=default1.png&_v=5be0d483a4cb9ccaf446f41aecc77b92",
+                                    "horizontalImage": "https:\u002F\u002Fcontent.r9cdn.net\u002Frimg\u002Fprovider-logos\u002Fairlines\u002Fh\u002FKE.png?crop=false&width=88&height=31&fallback=default1.png&_v=3da5fba43812e725aacf712e0f2f1121",
+                                    "wideHorizontalImage": "https:\u002F\u002Fcontent.r9cdn.net\u002Frimg\u002Fprovider-logos\u002Fairlines\u002Fh\u002FKE.png?crop=false&width=102&height=18&fallback=default1.png&_v=3da5fba43812e725aacf712e0f2f1121",
+                                    "name": "Korean Air"
+                                }
+                            ],
+                            "currency": "USD",
+                            "countryName": "United States"
+                        },
+                        "fees": {
+                            "rawPrice": 1488,
+                            "basePrice": "$1,488",
+                            "totalPrice": "$1,488",
+                            "carryOnBagData": {
+                                "status": "INCLUDED",
+                                "displayPrice": "$0",
+                                "numSelected": 0},
+                                "checkedBagData": {
+                                    "status": "UNKNOWN",
+                                    "numSelected": 0,
+                                    "secondBag": {
+                                        "status": "UNKNOWN"
+                                    }
+                                },
+                                "carryOnDisplay": "Included",
+                                "checkedBagDisplay": "Unknown",
+                                "checkedBagDisclosures": [
+                                    {
+                                        "prefix": "Korean Air",
+                                        "disclosures": [
+                                            "Up to 50lbs per bag",
+                                            "Up to 62in total"
+                                        ]
+                                    },
+                                    {
+                                        "prefix": "Delta",
+                                        "disclosures": [
+                                            "Up to 50lbs per bag",
+                                            "Up to 62in total"
+                                        ]
+                                    }
+                                ]
+                            },
+                            "flags": {
+                                "isFeaturedProvider": true,
+                                "isDirect": true,
+                                "isFreeCancellation": true
+                            },
+                            "qualityFlags": {
+                                "flag": "",
+                                "cancellation": "Free 24h",
+                                "accuracy": "Invalid",
+                                "standards": "Invalid",
+                                "fees": "Invalid",
+                                "score": 0
+                            },
+                            "fareAmenities": [
+                                {
+                                    "type": "CARRYON_BAG",
+                                    "restriction": "INCLUDED",
+                                    "prices": {
+                                        "FIRST_BAG": {
+                                            "price": 0,
+                                            "currencyFormatString": "$%s",
+                                            "localizedPrice": null
+                                        }
+                                    }
+                                },
+                                {
+                                    "type": "CHECKED_BAG",
+                                    "restriction": "INCLUDED",
+                                    "includedCheckedBagCount": 0
+                                },
+                                {
+                                    "type": "SEAT_SELECTION",
+                                    "restriction": "UNAVAILABLE"
+                                },
+                                {
+                                    "type": "LEGROOM",
+                                    "restriction": "UNAVAILABLE"
+                                },
+                                {
+                                    "type": "CHANGE",
+                                    "restriction": "UNAVAILABLE"
+                                },
+                                {
+                                    "type": "REFUNDABLE",
+                                    "restriction": "UNAVAILABLE"
+                                }
+                            ],
+                            "afterclickUrl": "\u002Fi\u002Fapi\u002Fkn\u002Fafterclick\u002Fv1?searchId=oaDiKiOr8v"
+                        }
+                    ],
+                    "uiCabinCode": "bfbe",
+                    "topPrice": {
+                        "price": 1488,
+                        "currencyFormatString": "$%s",
+                        "localizedPrice": "$1,488"
+                    },
+                    "isFeatured": true}
+                ]
       }
     }
   }
