@@ -5,7 +5,7 @@ function processFlights(data) {
   for (const itinerary of data.destinations) {
     const flight = itinerary.flightInfo;
     const {city, country, airport} = itinerary;
-    const searchUrl = `https://www.kayak.com/${itinerary.clickoutUrl}`
+    const searchUrl = `https://www.kayak.com${itinerary.clickoutUrl}`
     const location = {
       destination: {
         city: {
