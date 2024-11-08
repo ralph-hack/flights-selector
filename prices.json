@@ -18107,7 +18107,74 @@
                         "localizedPrice": "$1,488"
                     },
                     "isFeatured": true}
-                ]
+        ],
+        "displayAirline": {
+            "code": "MULT",
+            "name": "Multiple Airlines",
+            "logoUrl": "https:\u002F\u002Fcontent.r9cdn.net\u002Frimg\u002Fprovider-logos\u002Fairlines\u002Fv\u002FMULT.png?crop=false&width=108&height=92&fallback=default2.png&_v=230551432b21d8d61f889d8fad67a560"
+        },
+        "distinctAirlines": [
+            {
+                "code": "KE",
+                "name": "Korean Air",
+                "logoUrl": "https:\u002F\u002Fcontent.r9cdn.net\u002Frimg\u002Fprovider-logos\u002Fairlines\u002Fv\u002FKE.png?crop=false&width=108&height=92&fallback=default1.png&_v=5be0d483a4cb9ccaf446f41aecc77b92",
+                "baggagePolicyInfo": [
+                    {
+                        "bagType": "PERSONAL",
+                        "bagRestriction": {
+                            "DIMENSIONS": null
+                        }
+                    },
+                    {
+                        "bagType": "CARRYON",
+                        "bagRestriction": {
+                            "DIMENSIONS": "Up to 21 x 15 x 7in"
+                        }
+                    },
+                    {
+                        "bagType": "CHECKED",
+                        "bagRestriction": {
+                            "DIMENSIONS": "Up to 62in total"
+                        }
+                    }
+                ],
+                "airlineFeeUrl": "https:\u002F\u002Fwww.koreanair.com\u002Fglobal\u002Fen\u002Ftraveling\u002Fbaggage-services.html"
+            },
+            {
+                "code": "DL",
+                "name": "Delta",
+                "logoUrl": "https:\u002F\u002Fcontent.r9cdn.net\u002Frimg\u002Fprovider-logos\u002Fairlines\u002Fv\u002FDL.png?crop=false&width=108&height=92&fallback=default1.png&_v=02a9af26513d796d51e54147426d15b5",
+                "baggagePolicyInfo": [
+                    {
+                        "bagType": "PERSONAL",
+                        "bagRestriction": {
+                            "DIMENSIONS": null
+                        }
+                    },
+                    {
+                        "bagType": "CARRYON",
+                        "bagRestriction": {
+                            "DIMENSIONS": "Up to 22 x 13 x 9in"
+                        }
+                    },
+                    {
+                        "bagType": "CHECKED",
+                        "bagRestriction": {
+                            "DIMENSIONS": "Up to 62in total"}
+                        }
+                    ],
+                    "airlineFeeUrl": "https:\u002F\u002Fwww.delta.com\u002Fcontent\u002Fwww\u002Fen_US\u002Ftraveling-with-us\u002Fbaggage\u002Fbefore-your-trip.html"
+                }
+            ],
+            "cabinCode": "bfbe",
+            "operationalDisclosures": "Operated by Delta",
+            "co2Info": {
+                "co2Total": 5.011526986956596,
+                "co2Average": 6.567650593794047
+            },
+            "isSaved": false,
+            "isCheapestRatePrivateAndHidden": false,
+            "itemType": "RESULT"
       }
     }
   }
