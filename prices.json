@@ -1,29 +1,5 @@
+
 {
-    "FlightResultsList": {
-                        "resultIds": [
-                            "a4fc26280014a494f566013c35519ddf-sponsored",
-                            "5f410614aaac24bf4d653d1fb14e9e6d",
-                            "e9f7cbe1aaf559685f053d31dab270e0",
-                            "inline-1-1",
-                            "8bcc82dd4ee3a586e2e0fc817e571a50",
-                            "inline_display_ad",
-                            "b49bfdde6e113bfb6c5d037263fa3a61",
-                            "c043b8e76d758b75374e6284d1964605",
-                            "inline-1-5",
-                            "834e8e98fca5990a866fb74a2e431cfe",
-                            "66cbb6573ee6d2d2863890f7a4422dd5",
-                            "6f9b5bfc9f7fa10b27b9549284e291e8",
-                            "ee7eeaceba29a1036212c93f224b4679",
-                            "inline-1-9",
-                            "3cac5484506f384b61fff6e72cfd7639",
-                            "c60785758839a7e180d6a6747dbd7d9e",
-                            "a97e288c57dbd39158ca0ee3ce53f47d",
-                            "1bb39f28f5eb264afd123ad3d9a4409b",
-                            "inline-1-13",
-                            "2345099d56b11c07b0777b53fbb5a768",
-                            "f8a1d2e9733cd11f568d5a16b94b6d12",
-                            "2aa98b03d78967476e3958ab4b5b06a4"
-                        ],
                         "results": {
                             "a4fc26280014a494f566013c35519ddf-sponsored": {
                                 "resultId": "a4fc26280014a494f566013c35519ddf",
@@ -17787,5 +17763,225 @@
                                     ]
                                 }
                             }
-                        ]
-                    
+                        ] 
+                    }, 
+                    {"legId": "BKKMCO1741597200000KE6601741626000000KE50391741636800000DL17353",
+                    "legIndex": 1,
+                    "distinctAirlines": [
+                        {
+                            "code": "KE",
+                            "name": "Korean Air",
+                            "logoUrl": "https:\u002F\u002Fcontent.r9cdn.net\u002Frimg\u002Fprovider-logos\u002Fairlines\u002Fv\u002FKE.png?crop=false&width=108&height=92&fallback=default1.png&_v=5be0d483a4cb9ccaf446f41aecc77b92"
+                        },
+                        {
+                            "code": "DL",
+                            "name": "Delta",
+                            "logoUrl": "https:\u002F\u002Fcontent.r9cdn.net\u002Frimg\u002Fprovider-logos\u002Fairlines\u002Fv\u002FDL.png?crop=false&width=108&height=92&fallback=default1.png&_v=02a9af26513d796d51e54147426d15b5"
+                        }
+                    ],
+                    "displayAirline": {
+                        "code": "MULT",
+                        "name": "Multiple airlines",
+                        "logoUrl": "https:\u002F\u002Fcontent.r9cdn.net\u002Frimg\u002Fprovider-logos\u002Fairlines\u002Fv\u002FMULT.png?crop=false&width=108&height=92&fallback=default2.png&_v=230551432b21d8d61f889d8fad67a560"
+                    },
+                    "legDurationDisplay": "22h 52m",
+                    "legDurationMinutes": 1372,
+                    "segments": [
+                        {
+                            "flightNumber": "660",
+                            "airline": {
+                                "code": "KE",
+                                "name": "Korean Air",
+                                "logoUrl": "https:\u002F\u002Fcontent.r9cdn.net\u002Frimg\u002Fprovider-logos\u002Fairlines\u002Fv\u002FKE.png?crop=false&width=108&height=92&fallback=default1.png&_v=5be0d483a4cb9ccaf446f41aecc77b92"
+                            },
+                            "departure": {
+                                "airport": {
+                                    "code": "BKK",
+                                    "displayName": "Bangkok Suvarnabhumi",
+                                    "fullDisplayName": "Suvarnabhumi",
+                                    "cityCode": "BKK",
+                                    "cityName": "Bangkok"
+                                },
+                                "isoDateTimeLocal": "2025-03-10T09:40:00"
+                            },
+                            "arrival": {
+                                "airport": {
+                                    "code": "ICN",
+                                    "displayName": "Incheon Intl",
+                                    "fullDisplayName": "Incheon Intl",
+                                    "cityCode": "SEL",
+                                    "cityName": "Incheon"
+                                },
+                                "isoDateTimeLocal": "2025-03-10T17:05:00"
+                            },
+                            "duration": "5h 25m",
+                            "durationMinutes": 325,
+                            "cabinDisplay": "Economy",
+                            "cabinCode": "e",
+                            "segmentQualityItems": {
+                                "equipmentTypeName": "Boeing 777-300ER",
+                                "qualityItems": [
+                                    {
+                                        "icon": "FLIGHT",
+                                        "msg": "Boeing 777-300ER (Wide-body jet)"
+                                    },
+                                    {
+                                        "icon": "ENTERTAINMENT",
+                                        "msg": "Seatback on-demand video"
+                                    },
+                                    {
+                                        "icon": "POWER",
+                                        "msg": "Power & USB outlets"
+                                    },
+                                    {
+                                        "icon": "SEAT",
+                                        "msg": "33\" seat pitch"
+                                    },
+                                    {
+                                        "icon": "FOOD",
+                                        "msg": "Lunch provided"
+                                    }
+                                ]
+                            },
+                            "layover": {
+                                "duration": "0h 45m",
+                                "durationMinutes": 45,
+                                "message": "Change planes in Incheon (ICN)",
+                                "isShort": true
+                            }
+                        },
+                        {
+                            "flightNumber": "5039",
+                            "airline": {
+                                "code": "KE",
+                                "name": "Korean Air",
+                                "logoUrl": "https:\u002F\u002Fcontent.r9cdn.net\u002Frimg\u002Fprovider-logos\u002Fairlines\u002Fv\u002FKE.png?crop=false&width=108&height=92&fallback=default1.png&_v=5be0d483a4cb9ccaf446f41aecc77b92"
+                            },
+                            "departure": {
+                                "airport": {
+                                    "code": "ICN",
+                                    "displayName": "Incheon Intl",
+                                    "fullDisplayName": "Incheon Intl",
+                                    "cityCode": "SEL",
+                                    "cityName": "Incheon"
+                                },
+                                "isoDateTimeLocal": "2025-03-10T17:50:00"
+                            },
+                            "arrival": {
+                                "airport": {
+                                    "code": "ATL",
+                                    "displayName": "Atlanta Hartsfield-Jackson",
+                                    "fullDisplayName": "Hartsfield-Jackson",
+                                    "cityCode": "ATL",
+                                    "cityName": "Atlanta"
+                                },
+                                "isoDateTimeLocal": "2025-03-10T18:35:00"
+                            },
+                            "duration": "13h 45m",
+                            "durationMinutes": 825,
+                            "cabinDisplay": "Economy",
+                            "cabinCode": "e",
+                            "operationalDisplay": "Delta",
+                            "isOvernight": true,
+                            "segmentQualityItems": {
+                                "equipmentTypeName": "Airbus A350-900",
+                                "qualityItems": [
+                                    {
+                                        "icon": "FLIGHT",
+                                        "msg": "Airbus A350-900 (Wide-body jet)"
+                                    },
+                                    {
+                                        "icon": "WIFI",
+                                        "msg": "Fast web browsing"
+                                    },
+                                    {
+                                        "icon": "ENTERTAINMENT",
+                                        "msg": "Seatback on-demand video"
+                                    },
+                                    {
+                                        "icon": "POWER",
+                                        "msg": "Power & USB outlets"
+                                    },
+                                    {
+                                        "icon": "SEAT",
+                                        "msg": "31\" seat pitch"
+                                    },
+                                    {
+                                        "icon": "FOOD",
+                                        "msg": "Dinner provided"
+                                    }
+                                ]
+                            },
+                            "layover": {
+                                "duration": "1h 30m",
+                                "durationMinutes": 90,
+                                "message": "Change planes in Atlanta (ATL)"
+                            }
+                        },
+                        {
+                            "flightNumber": "1735",
+                            "airline": {
+                                "code": "DL",
+                                "name": "Delta",
+                                "logoUrl": "https:\u002F\u002Fcontent.r9cdn.net\u002Frimg\u002Fprovider-logos\u002Fairlines\u002Fv\u002FDL.png?crop=false&width=108&height=92&fallback=default1.png&_v=02a9af26513d796d51e54147426d15b5"
+                            },
+                            "departure": {
+                                "airport": {
+                                    "code": "ATL",
+                                    "displayName": "Atlanta Hartsfield-Jackson",
+                                    "fullDisplayName": "Hartsfield-Jackson",
+                                    "cityCode": "ATL",
+                                    "cityName": "Atlanta"
+                                },
+                                "isoDateTimeLocal": "2025-03-10T20:05:00"
+                            },
+                            "arrival": {
+                                "airport": {
+                                    "code": "MCO",
+                                    "displayName": "Orlando",
+                                    "fullDisplayName": "Orlando",
+                                    "cityCode": "ORL",
+                                    "cityName": "Orlando"
+                                },
+                                "isoDateTimeLocal": "2025-03-10T21:32:00"
+                            },
+                            "duration": "1h 27m",
+                            "durationMinutes": 87,
+                            "cabinDisplay": "Basic Economy",
+                            "cabinCode": "bfbe",
+                            "segmentQualityItems": {
+                                "equipmentTypeName": "Boeing 757",
+                                "qualityItems": [
+                                    {
+                                        "icon": "FLIGHT",
+                                        "msg": "Boeing 757 (Narrow-body jet)"
+                                    },
+                                    {
+                                        "icon": "WIFI",
+                                        "msg": "Streaming capable Wi-Fi"
+                                    },
+                                    {
+                                        "icon": "ENTERTAINMENT",
+                                        "msg": "Seatback on-demand & live TV"
+                                    },
+                                    {
+                                        "icon": "POWER",
+                                        "msg": "Power & USB outlets"
+                                    },
+                                    {
+                                        "icon": "SEAT",
+                                        "msg": "31\" seat pitch"
+                                    },
+                                    {
+                                        "icon": "FOOD",
+                                        "msg": "Snacks provided"
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                } 
+                ]
+            }
+        }
+    }
