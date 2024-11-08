@@ -100,6 +100,77 @@ function processFlights(data, sortStrategy) {
   return locations;
 }
 
+function processPrices(data) {
+  const flightOptions = [];
+  const {resultIds} = data.FlightResultsList;
+  console.log('resultIds ===> ',resultIds);
+  resultIds.forEach( (itineraryId) => {
+    //console.log('itineraryId ===> ',itineraryId);
+    const itinerary = data.FlightResultsList.results[itineraryId];
+   // console.log('itinerary ===> ',itinerary);
+    const {optionsByFare} = itinerary;
+    //console.log('optionsByFare ===> ',itineraryId, optionsByFare);
+    // const searchUrl = `https://www.kayak.com${itinerary.clickoutUrl}`
+
+    if(optionsByFare){
+      const option = {
+        // destination: {
+        //   city: {
+        //       id: city.id,
+        //       name: city.name
+        //   },
+        //   country: {
+        //       id: country.id, 
+        //       name: country.name,
+        //       code: country.code
+        //   }
+        // },
+        // label: `${city.name}, ${country.name}`,
+        itinerary: {
+          id: itineraryId,
+          rawPrice: optionsByFare[0].topPrice.price //,
+          // airline: {
+          //     name: itinerary.airline,
+          //     code: itinerary.airlineCode
+          // },
+          // airport: {
+          //     name: airport.name,
+          //     code: airport.shortName,
+          //     latitude: airport.latitude,
+          //     longitude: airport.longitude
+          // }
+        }//,
+        //searchUrl: searchUrl
+      };
+     // console.log('flight option ===> ',option)
+      flightOptions.push(option);
+  }
+  else{
+    console.log('fare not found', itineraryId);
+  }
+  });
+
+  // Sort accommodations by destination aka city.name (ascending), TODO[by month (ascending)] and then by price (ascending)
+  flightOptions.sort((a, b) => {
+    // if (a.destination.city.name !== b.destination.city.name) {
+      //return b.destination.city.name - a.destination.city.name;
+      // return a.destination.city.name.localeCompare(b.destination.city.name);
+    // } 
+    // else if (a.location.flight.date !== b.location.flight.date) {
+        // return a.flight.date - b.flight.date;
+    // } 
+    // else  {
+      return a.itinerary.rawPrice - b.itinerary.rawPrice;
+    // }
+  });
+
+  // Group flights by city destination
+  //return groupByCityName(flightOptions);
+
+  return flightOptions;
+}
+
+
 const strategyGroupedSortByCityAndPrice = (a, b) => {
   if (a.destination.city.name !== b.destination.city.name) {
     //return b.destination.city.name - a.destination.city.name;
@@ -147,7 +218,8 @@ function main(){
       //sortByCityAndPriceGeneric(json);
       //sortByPriceGeneric(json)
       //sortByCountryAndPriceGeneric(json);
-      searchForCountryDestinations(json,['Japan','China','Thailand','Cambodia','Philippines','Vietnam','Indonesia','Malaysia','Singapore'])
+      //searchForCountryDestinations(json,['Japan','China','Thailand','Cambodia','Philippines','Vietnam','Indonesia','Malaysia','Singapore']
+      searchForPrices('prices.json');
     } catch (error) {
       console.error('Error processing JSON data:', error);
     }
@@ -159,7 +231,7 @@ function main(){
 // ----------------------------------------------------------------
 function sortByPriceGeneric(json) {
   const locations = processFlights(json,strategySortByPrice);
-  printByPrice(locations);
+  printLocationsByPrice(locations);
 }
 
 function sortByCityAndPriceGeneric(json) {
@@ -199,13 +271,38 @@ function searchForCountryDestinations(json, countries) {
   printGroupedByCountryAndPrice(result);
 }
 
+function searchForPrices(pricesJson) {
+  console.log('Searching for prices...');
+  fs.readFile(pricesJson, 'utf8', (err, data) => {
+    if (err) {
+      console.error('Error reading JSON file:', err);
+      return;
+    }
+
+    try {
+      const json = JSON.parse(data);
+      //console.log(json);
+      const locations = processPrices(json);
+      printItinerariesByPrice(locations);
+    } catch (error) {
+      console.error('Error processing JSON data:', error);
+    }
+  });
+}
+
 
 // ----------------------------------------------------------------
 // HELPER SUBROUTINES
 // ----------------------------------------------------------------
-function printByPrice(groupedData) {
-  for (const location of groupedData) {
+function printLocationsByPrice(locations) {
+  for (const location of locations) {
     console.log(`${location.label}: $${location.flight.expectedPrice} ${location.searchUrl}`);
+  }
+}
+
+function printItinerariesByPrice(options) {
+  for (const option of options) {
+    console.log(`${option.itinerary.id}:  $${option.itinerary.rawPrice}`);
   }
 }
 
