@@ -113,6 +113,22 @@ const strategyGroupedSortByCityAndPrice = (a, b) => {
   }
 };
 
+function countryName(location){
+  return location.destination.country.name;
+}
+
+const strategyGroupedSortByCountryAndPrice = (a, b) => {
+  const countryA = countryName(a);
+  const countryB = countryName(b);
+  if (countryA !== countryB) {
+    return countryA.localeCompare(countryB);
+  } 
+  else  {
+    return a.flight.expectedPrice - b.flight.expectedPrice;
+  }
+};
+
+
 const strategySortByPrice = (a, b) => {
     return a.flight.expectedPrice - b.flight.expectedPrice;
 };
@@ -127,10 +143,10 @@ fs.readFile('flights.json', 'utf8', (err, data) => {
   try {
     const json = JSON.parse(data);
     //sortByCityAndPrice(json);
-    sortByCityAndPriceGeneric(json);
+    //sortByCityAndPriceGeneric(json);
     //sortByPriceGeneric(json)
-    // Print list sorted by price
-    // printByPrice(groupedData);
+    sortByCountryAndPriceGeneric(json);
+    // getByCountryDestinations(['Japan','China'])
   } catch (error) {
     console.error('Error processing JSON data:', error);
   }
@@ -145,6 +161,12 @@ function sortByCityAndPriceGeneric(json) {
   const locations = processFlights(json,strategyGroupedSortByCityAndPrice);
   const groupedData = groupByCityName(locations);
   printGroupedByCityAndPrice(groupedData);
+}
+
+function sortByCountryAndPriceGeneric(json) {
+  const locations = processFlights(json,strategyGroupedSortByCountryAndPrice);
+  const groupedData = groupByCountryName(locations);
+  printGroupedByCountryAndPrice(groupedData);
 }
 
 function sortByCityAndPrice(json) {
@@ -167,10 +189,32 @@ function printGroupedByCityAndPrice(groupedData) {
   }
 }
 
+function printGroupedByCountryAndPrice(groupedData) {
+  for (const cityName in groupedData) {
+    console.log(`Country: ${cityName}`);
+    for (const location of groupedData[cityName]) {
+      console.log(`\t- ${location.label}: $${location.flight.expectedPrice} ${location.searchUrl}`);
+    }
+  }
+}
+
 function groupByCityName(locations) {
   const groupedLocations = {};
   for (const location of locations) {
     const key = location.destination.city.name;
+    if (!groupedLocations[key]) {
+      groupedLocations[key] = [];
+    }
+    groupedLocations[key].push(location);
+  }
+
+  return groupedLocations;
+}
+
+function groupByCountryName(locations) {
+  const groupedLocations = {};
+  for (const location of locations) {
+    const key = countryName(location);
     if (!groupedLocations[key]) {
       groupedLocations[key] = [];
     }
