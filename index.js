@@ -40,15 +40,15 @@ function processFlights(data) {
 
   // Sort accommodations by destination aka city.name (ascending), TODO[by month (ascending)] and then by price (ascending)
   locations.sort((a, b) => {
-    if (a.destination.city.name !== b.destination.city.name) {
-      return b.destination.city.name - a.destination.city.name;
-    } 
-    // else if (a.location.flight.date !== b.location.flight.date) {
-    //     return a.location.flight.date - b.location.flight.date;
+    // if (a.destination.city.name !== b.destination.city.name) {
+    //   return b.destination.city.name - a.destination.city.name;
     // } 
-    else  {
-      return a.flight.expectedPrice - b.flight.expectedPrice;
-    }
+    // else if (a.location.flight.date !== b.location.flight.date) {
+        return a.flight.date - b.flight.date;
+    // } 
+    // else  {
+    //   return a.flight.expectedPrice - b.flight.expectedPrice;
+    // }
   });
 
   // Group accommodations by review rating
