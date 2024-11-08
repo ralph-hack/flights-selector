@@ -40,30 +40,22 @@ function processFlights(data) {
 
   // Sort accommodations by destination aka city.name (ascending), TODO[by month (ascending)] and then by price (ascending)
   locations.sort((a, b) => {
-    // if (a.destination.city.name !== b.destination.city.name) {
-    //   return b.destination.city.name - a.destination.city.name;
-    // } 
+    if (a.destination.city.name !== b.destination.city.name) {
+      //return b.destination.city.name - a.destination.city.name;
+      return a.destination.city.name.localeCompare(b.destination.city.name);
+    } 
     // else if (a.location.flight.date !== b.location.flight.date) {
         // return a.flight.date - b.flight.date;
     // } 
-    // else  {
+    else  {
       return a.flight.expectedPrice - b.flight.expectedPrice;
-    // }
+    }
   });
 
-  // Group accommodations by review rating
-  // const groupedLocations = {};
-  // for (const location of locations) {
-  //   const key = location.destination.city.name;
-  //   if (!groupedLocations[key]) {
-  //     groupedLocations[key] = [];
-  //   }
-  //   groupedLocations[key].push(location);
-  // }
+  // Group flights by city destination
+  return groupByCityName(locations);
 
-  // return groupedLocations;
-
-  return locations;
+  // return locations;
 }
 
 // Load the JSON data
@@ -78,17 +70,39 @@ fs.readFile('flights.json', 'utf8', (err, data) => {
     const groupedData = processFlights(json);
 
     // Print the grouped data (optional)
-    // for (const cityName in groupedData) {
-    //   console.log(`City: ${cityName}`);
-    //   for (const location of groupedData[cityName]) {
-    //     console.log(`\t- ${location.label}: $${location.flight.expectedPrice} ${location.searchUrl}`); //(${location.flight.url})`);
-    //   }
-    // }
+    printGroupedByCity(groupedData);
 
-    for(const location of groupedData) {
-      console.log(`${location.label}: $${location.flight.expectedPrice} ${location.searchUrl}`);
-    }
+    // Print list sorted by price
+    // printByPrice(groupedData);
   } catch (error) {
     console.error('Error processing JSON data:', error);
   }
 });
+function printByPrice(groupedData) {
+  for (const location of groupedData) {
+    console.log(`${location.label}: $${location.flight.expectedPrice} ${location.searchUrl}`);
+  }
+}
+
+function printGroupedByCity(groupedData) {
+  for (const cityName in groupedData) {
+    console.log(`City: ${cityName}`);
+    for (const location of groupedData[cityName]) {
+      console.log(`\t- ${location.label}: $${location.flight.expectedPrice} ${location.searchUrl}`);
+    }
+  }
+}
+
+function groupByCityName(locations) {
+  const groupedLocations = {};
+  for (const location of locations) {
+    const key = location.destination.city.name;
+    if (!groupedLocations[key]) {
+      groupedLocations[key] = [];
+    }
+    groupedLocations[key].push(location);
+  }
+
+  return groupedLocations;
+}
+
