@@ -133,25 +133,30 @@ const strategySortByPrice = (a, b) => {
     return a.flight.expectedPrice - b.flight.expectedPrice;
 };
 
-// Load the JSON data
-fs.readFile('flights.json', 'utf8', (err, data) => {
-  if (err) {
-    console.error('Error reading JSON file:', err);
-    return;
-  }
+function main(){
+  // Load the JSON data
+  fs.readFile('flights.json', 'utf8', (err, data) => {
+    if (err) {
+      console.error('Error reading JSON file:', err);
+      return;
+    }
 
-  try {
-    const json = JSON.parse(data);
-    //sortByCityAndPrice(json);
-    //sortByCityAndPriceGeneric(json);
-    //sortByPriceGeneric(json)
-    sortByCountryAndPriceGeneric(json);
-    // getByCountryDestinations(['Japan','China'])
-  } catch (error) {
-    console.error('Error processing JSON data:', error);
-  }
-});
+    try {
+      const json = JSON.parse(data);
+      //sortByCityAndPrice(json);
+      //sortByCityAndPriceGeneric(json);
+      //sortByPriceGeneric(json)
+      //sortByCountryAndPriceGeneric(json);
+      searchForCountryDestinations(json,['Japan','China'])
+    } catch (error) {
+      console.error('Error processing JSON data:', error);
+    }
+  });
+}
 
+// ----------------------------------------------------------------
+// HELPER ROUTINES
+// ----------------------------------------------------------------
 function sortByPriceGeneric(json) {
   const locations = processFlights(json,strategySortByPrice);
   printByPrice(locations);
@@ -174,6 +179,30 @@ function sortByCityAndPrice(json) {
   printGroupedByCityAndPrice(groupedData);
 }
 
+function searchForCountryDestinations(json, countries) {
+  const locations = processFlights(json,strategyGroupedSortByCountryAndPrice);
+  const groupedData = groupByCountryName(locations);
+  const result = {}
+  console.log(countries);
+  countries.forEach(countryName =>  {
+    if(groupedData[countryName]){
+      // result.push(groupedData[countryName])
+      if (!result[countryName]) {
+        result[countryName] = [];
+      }
+      result[countryName] = groupedData[countryName];
+    }
+    else{
+      console.log('Not found ',countryName);
+    }
+  });
+  printGroupedByCountryAndPrice(result);
+}
+
+
+// ----------------------------------------------------------------
+// HELPER SUBROUTINES
+// ----------------------------------------------------------------
 function printByPrice(groupedData) {
   for (const location of groupedData) {
     console.log(`${location.label}: $${location.flight.expectedPrice} ${location.searchUrl}`);
@@ -224,3 +253,4 @@ function groupByCountryName(locations) {
   return groupedLocations;
 }
 
+main();
