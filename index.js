@@ -44,10 +44,10 @@ function processFlights(data) {
     //   return b.destination.city.name - a.destination.city.name;
     // } 
     // else if (a.location.flight.date !== b.location.flight.date) {
-        return a.flight.date - b.flight.date;
+        // return a.flight.date - b.flight.date;
     // } 
     // else  {
-    //   return a.flight.expectedPrice - b.flight.expectedPrice;
+      return a.flight.expectedPrice - b.flight.expectedPrice;
     // }
   });
 
