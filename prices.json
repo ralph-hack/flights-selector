@@ -1,4 +1,29 @@
 {
+  "FlightResultsList": {
+    "resultIds": [
+        "a4fc26280014a494f566013c35519ddf-sponsored",
+        "5f410614aaac24bf4d653d1fb14e9e6d",
+        "e9f7cbe1aaf559685f053d31dab270e0",
+        "inline-1-1",
+        "8bcc82dd4ee3a586e2e0fc817e571a50",
+        "inline_display_ad",
+        "b49bfdde6e113bfb6c5d037263fa3a61",
+        "c043b8e76d758b75374e6284d1964605",
+        "inline-1-5",
+        "834e8e98fca5990a866fb74a2e431cfe",
+        "66cbb6573ee6d2d2863890f7a4422dd5",
+        "6f9b5bfc9f7fa10b27b9549284e291e8",
+        "ee7eeaceba29a1036212c93f224b4679",
+        "inline-1-9",
+        "3cac5484506f384b61fff6e72cfd7639",
+        "c60785758839a7e180d6a6747dbd7d9e",
+        "a97e288c57dbd39158ca0ee3ce53f47d",
+        "1bb39f28f5eb264afd123ad3d9a4409b",
+        "inline-1-13",
+        "2345099d56b11c07b0777b53fbb5a768",
+        "f8a1d2e9733cd11f568d5a16b94b6d12",
+        "2aa98b03d78967476e3958ab4b5b06a4"
+    ],
     "results": {
       "a4fc26280014a494f566013c35519ddf-sponsored": {
         "resultId": "a4fc26280014a494f566013c35519ddf",
@@ -18178,3 +18203,4 @@
       }
     }
   }
+}
